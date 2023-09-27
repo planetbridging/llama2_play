@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  phi-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: phi-app:latest
+    container_name: phi_container
+    volumes:
+      - ./models:/app/models
+    environment:
+      - CUDA_VISIBLE_DEVICES=''  # This ensures the model runs on CPU
